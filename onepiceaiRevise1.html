@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的航海王懸賞牆 - 註解學習版</title>
+</head>
+<style>
+    /* 【第一部分：大教室佈置】 */
+    body {
+        /* 1. 鋪上你最愛的那張 123.jpg 地圖壁紙 */
+        background-image: url(./123.jpg);
+        /* 2. 讓地圖「縮放」到剛好蓋滿整面牆，不會露出白邊 */
+        background-size: cover;
+        /* 3. 牆壁貼死！捲動網頁時，地圖會固定在後方不會動 */
+        background-attachment: fixed;
+        /* 4. 清掉邊邊角角的預設縫隙，讓地圖貼得整整齊齊 */
+        margin: 0;
+        /* 5. 讓第一排照片離天花板 50 像素，留點呼吸空間 */
+        padding-top: 50px;
+        /* 6. 重點：這就是你要的 80% 透明感！像是在地圖前擋了一層磨砂玻璃 */
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    /* 【第二部分：第一排隊伍 (魯夫組)】 */
+    .row {
+        /* 讓裡面的照片「橫著排」 */
+        display: flex; 
+        /* 厲害的地方：直接從左邊牆壁推 500 像素，定出第一排的位置 */
+        margin-left: 500px;
+        /* 照片跟照片中間要有 40 像素的走道，才不會擠成一團 */
+        gap: 40px; 
+        /* 跟下面那一排照片保持 50 像素的距離 */
+        margin-bottom: 50px; 
+    }
+
+    /* 【第三部分：第二排隊伍 (甚平組)】 */
+    .row1 {
+        /* 同樣讓裡面的照片橫著排 */
+        display: flex; 
+        /* 厲害的地方：推更多(816 像素)，所以這排會比第一排更靠右邊 */
+        margin-left: 816px;
+        /* 跟照片保持一樣的走道寬度 */
+        gap: 40px; 
+        /* 跟下面也保持距離 */
+        margin-bottom: 50px; 
+    }
+
+    /* 【第四部分：大家的「統一校服」】 */
+    /* 因為 6 張照片的長相都一樣，我們寫在一起最聰明 */
+    .poster-base {
+        width: 270px;          /* 設定每張懸賞單的寬度 */
+        height: 390px;         /* 設定每張懸賞單的高度 */
+        background-image: url(./one.png); /* 大家共用同一張大圖片庫 */
+        background-repeat: no-repeat;    /* 圖片不要重疊出現 */
+        
+        /* 質感關鍵：加上「黑色的影子」，讓照片看起來像浮在空中 */
+        box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        /* 讓照片的尖角變圓圓的，比較高級 */
+        border-radius: 5px;
+        /* 變身設定：滑鼠摸到時，變化過程要花 0.3 秒，才不會太突兀 */
+        transition: transform 0.3s; 
+    }
+
+    /* 滑鼠摸到照片時變魔法 */
+    .poster-base:hover {
+        /* 往上飛起 15 像素，並稍微放大一點點 (1.05倍) */
+        transform: translateY(-15px) scale(1.05); 
+        /* 讓滑鼠指到時變成「小手手」，代表可以點擊 */
+        cursor: pointer;
+    }
+
+    /* 【第五部分：對準角色的臉】 */
+    /* 這裡完全保留你原本辛苦調出來的座標，保證不跑位 */
+    .box  { background-position: -25px -14px; }    /* 第一格：對準魯夫 */
+    .box2 { background-position: -357px -14px; }   /* 第二格：對準香吉士 */
+    .box3 { background-position: -687px -13px; }   /* 第三格：對準佛朗基 */
+    
+    .box1 { background-position: -25px -433px; }   /* 第四格：對準甚平 */
+    .box4 { background-position: -355px -434px; }  /* 第五格：對準薩波 */
+    .box5 { background-position: -687px -433px; }  /* 第六格：對準紅髮 */
+
+</style>
+<body>
+
+    <!-- 第一排的家：裝著魯夫、香吉士、佛朗基 -->
+    <div class="row">
+        <!-- 給盒子穿上共通校服(.poster-base)，再指定要露出的臉(.box) -->
+        <div class="poster-base box"></div>
+        <div class="poster-base box2"></div>
+        <div class="poster-base box3"></div>
+    </div>
+
+    <!-- 第二排的家：裝著甚平、薩波、紅髮 -->
+    <div class="row1">
+        <!-- 同樣穿上校服，再對準各別的臉 -->
+        <div class="poster-base box1"></div>
+        <div class="poster-base box4"></div>
+        <div class="poster-base box5"></div>
+    </div>
+
+</body>
+</html>

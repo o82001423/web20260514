@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片排隊解釋版</title>
+</head>
+<style>
+    /* 這裡確保每一組圖片都不會被上一組影響，乖乖換行 */
+    .container1, .container2 {
+        clear: both; 
+        overflow: hidden;
+    }
+
+    /* --- 第一組：預設左排，a1 往右跑 --- */
+    .container1>img {
+        margin-top: 50px;
+        margin-left: 50px;
+        float: left; /* 同學們，全部往左看齊！ */
+    }
+    .container1>.a1 {
+        margin-right: 50px;
+        float: right; /* a1 你不准跟隊伍排，你去右邊牆角！ */
+    }
+    
+    /* --- 第二組：預設右排，a2 往左跑 --- */
+    .container2>img {
+        
+        margin-top: 50px;
+        margin-right: 50px;
+        float: right; /* 同學們，這組換成往右看齊！ */
+    }
+
+    .container2>.a2 {
+        margin-left: 50px;
+        float: left; /* a2 你也不准跟隊伍排，你去左邊牆角！ */
+    }
+</style>
+<body>
+    <!-- 這裡 A1 寫第一個，但 CSS 叫它往右，所以它會出現在畫面最右邊 -->
+    <div class="container1">
+        <img class="a1" src="./img/1622596294654.gif" alt="我是插隊到右邊的" style="height: 200px;">
+        <img src="./img/DOrFwp.gif" alt="我在左排1" style="height: 200px;">
+        <img src="./img/laughing-cat.gif" alt="我在左排2" style="height: 200px;">
+    </div>
+
+    <!-- 這裡 A2 寫第一個，但 CSS 叫它往左，所以它會出現在畫面最左邊 -->
+    <div class="container2">
+        <img class="a2" src="./img/jojo-yes-yes-yes.gif" alt="我是插隊到左邊的" style="height: 200px;">
+        <img src="./img/jotaro-kujo-jojo-bizarre-adventure.gif" alt="我在右排1" style="height: 200px;">
+        <img src="./img/screaming-cat-cat-screaming.gif" alt="我在右排2" style="height: 300px;width: 200px;">
+    </div>
+</body>
+</html>
